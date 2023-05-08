@@ -1,0 +1,188 @@
+/**
+* Nav
+*/
+
+.navbar {
+    text-transform: uppercase;
+}
+
+    .navbar .is-dark {
+        background: #444;
+      }
+
+      .menu-button {
+        top: 8px;
+        margin-right: 10px;
+        text-transform: uppercase;
+    }
+    
+
+/**
+* Footer 
+*/
+
+.footer a {
+    margin-bottom: 15px;
+    display: inline-block;
+    color: #292626;
+}
+
+
+/**
+* Bulma overrides
+*/
+
+.input, .button {
+    border-radius: 0;
+}
+
+/**
+ * Product list item
+ */
+
+.product-list-item .box .subtitle {
+    margin-bottom: 10;
+}
+
+.product-list-item .box .price {
+    color: #888;
+}
+
+
+/**
+logout
+**/
+.float-right {
+    float: left;
+    margin-left: 20px;
+}
+
+/**
+add product 
+**/
+.my-form label {
+    display: block;
+    margin-bottom:10px;
+    font-weight: bold;
+    margin-left: 10px;
+
+  }
+  
+  input[type="file"],
+select {
+  width: 50%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  margin-left: 10px;
+
+} 
+
+  .my-form input[type="text"],
+  .my-form input[type="number"],
+  .my-form textarea {
+    display: block;
+    width: 50%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    margin-bottom: 10px;
+    margin-left: 10px;
+
+  }
+  
+  .my-form select {
+    display: block;
+    width: 50%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    margin-bottom: 10px;
+    appearance: none;
+    margin-left: 10px;
+
+  }
+  
+  .my-form input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin-left: 10px;
+
+  }
+  
+  .my-form input[type="submit"]:hover {
+    background-color: #0069d9;  
+    margin-left: 10px;
+
+  }
+
+  #productapp {
+    margin-left: 20px;
+  }
+  
+  .column.is-3 img {
+    margin-top: 3px;
+    margin-left: 3px;
+  }
+  
+  .title {
+    margin-left: 10px;
+  }
+  
+  .tag.is-dark {
+    margin-left: 10px;
+  }
+  
+  .field.has-addons {
+    margin-left: 10px;
+  }
+  
+.title {
+  margin-bottom: 30px;
+}
+
+
+
+
+/* Order form styles */
+form#order-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form#order-form input[type=text],
+form#order-form input[type=email],
+form#order-form input[type=tel] {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form#order-form input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+form#order-form label {
+  font-weight: bold;
+}
+
+form#order-form .form-error {
+  color: red;
+  margin-top: 4px;
+}

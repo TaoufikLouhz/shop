@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+
+{% block content%}
+<h2 class="mt-6 text-xl">My orders</h2>
+
+<div class="box">
+    <h2 class="is-size-3 mb-4">My Orders</h2>
+    
+        <div class="columns is-gapless">
+            <div class="column is-3">
+            <strong>Image</strong>
+            </div>
+            <div class="column is-3">
+            <strong>Title</strong>
+            </div>
+            <div class="column is-3">
+            <strong>Quantity</strong>
+            </div>
+            <div class="column is-3">
+            <strong>Price</strong>
+            </div>
+        </div>
+        
+        {% for order_item in order_items %}
+            <div class="columns is-gapless">
+            <div class="column is-3">
+                <figure class="image is-64x64">
+                    <img src="{{ order_item.product.image.url }}">
+                </figure>
+            </div>
+            <div class="column is-3">
+                {{ order_item.product.title }}
+            </div>
+            <div class="column is-3">
+                {{ order_item.quantity }}
+            </div>
+            <div class="column is-3">
+                {{ order_item.product.price }} MAD
+            </div>
+            </div>
+        {% endfor %}
+    
+</div>
+  
+<br>
+{% endblock%}
+    <hr>

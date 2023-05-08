@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Cart {% endblock %}
+
+{% block content %}
+    <h1 class="title">Cart</h1>
+
+    {% if cart %}
+        <div class="box mb-6">
+            <div class="table">
+                <table class="table is-fullwidth is-striped">
+                    <thead>
+                        <th></th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th></th>
+                    </thead>
+
+                    <tbody>
+                        {% for item in cart %}
+                            <tr>
+                                <td>
+                                    <figure class="image is-64x64">
+                                        <img src="{{ item.product.image.url }}">
+                                    </figure>
+                                </td>
+                                <td style="padding-top: 25px;">
+                                    <h2>{{ item.product.title }}</h2>
+                                </td>
+                                <td style="padding-top: 25px;">
+                                    
+                                    <a href="{% url 'update_quantity' item.product.id %}?action=decrease" class="button is-danger is-rounded is-small">-</a>
+                                    {{ item.quantity }}
+                                    <a href="{% url 'update_quantity' item.product.id %}?action=increase" class="button is-primary is-rounded is-small">+</a>
+                                </td>
+                                <td style="padding-top: 25px;">{{ item.total_price }} MAD</td>
+                                <td style="padding-top: 25px;"><a href="{% url 'remove_from_cart' item.product.id %}" class="delete">Remove</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td><strong>Total cost</strong></td>
+                            <td><strong>{{ cart|length}}</strong></td>
+                            <td colspan="2"><strong>{{ cart.get_total_cost }} MAD</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+                <a href="{% url 'checkout' %}"  class="button is-success mt-4 is-uppercase" style="margin-left: 16px;">Checkout</a>
+            </div>
+        </div>
+        
+    {% else %}
+        <p class="has-text-centered" >You don't have any products in your cart!</p>
+    {% endif %}
+
+{% endblock %}
+

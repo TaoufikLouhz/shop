@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <div id="productapp">
+        
+        <div class="columns">
+            <div class="column is-3" >
+                <img src="{{ product.image.url }}" alt="error">
+            </div>
+        </div>
+        <h1 class="title">{{ product.title }}, {{ product.price }} MAD</h1>
+
+        <p class="mb-2"><span class="tag is-dark">Le vendeur : {{ product.vendor.name }}</span></p>
+    
+        <p>{{ product.description }}</p>
+
+        <hr>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="notification is-success is-toast">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        <form method="post" action=".">
+            {% csrf_token %}
+            
+            
+                <div class="control">
+                    <a href="{% url 'add_to_cart' product.id %}" class="button is-success is-uppercase">Add to cart</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

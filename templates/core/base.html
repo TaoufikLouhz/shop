@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SHOP</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+        <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+        <script src="{% static 'scripts/main.js' %}"></script>
+    </head>
+    <body>
+        <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="{% url 'frontpage' %}"></a>
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="main-navbar">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div class="navbar-menu" id="main-navbar">
+                <div class="navbar-start">
+                    <a href="{% url 'frontpage' %}" class="navbar-item">Home</a>
+                    <div class="navbar-item">
+                        <form method="get" action="{% url 'search' %}">
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <input type="text" class="input" placeholder="Search a product" name="query">
+                                </div>
+                                <div class="control">
+                                    <button class="button is-dark is-uppercase">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="navbar-end">
+                    {% for category in menu_categories %}
+                        <a href="{% url 'category' category.slug %}" class="button is-dark menu-button">{{ category.title }}</a>
+                    {% endfor %}
+                    <a href="{%url 'cart_view'%}" class="button is-dark menu-button">Cart {%if cart %} ({{cart|length}}){%endif%}</a>      
+                    <a href="{%url 'contact' %}" class="button is-dark menu-button">Contact</a>
+                    {% if not user.is_authenticated %}
+                        <a href="{%url 'become_vendor'%}" class="button is-dark menu-button">Become vendor</a>
+                        <a href="{% url 'login' %}" class="button is-success menu-button">Login</a>
+                    {% endif %}
+                    {% if request.user.is_authenticated and request.resolver_match.url_name != 'vendor_admin' %}
+                        <a href="{% url 'vendor_admin' %}" class="button is-success menu-button">Vendor admin</a>
+                    {% endif %}
+
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'logout' %}" class="button is-danger menu-button">Log out</a>
+                    {% endif %}
+                
+                    
+                </div>
+                
+            </div>
+        </nav>
+       
+                {% block content %}
+                {% endblock %}
+            </div>
+            {% block scripts %}
+            {% endblock %}
+        </section> 
+        
+        <footer class="footer">
+            <h3 class="is-size-4 mb-4">SHOP</h3>      
+        </footer>
+    </body>
+</html>
