@@ -1,0 +1,20 @@
+The project is based on Django and implements the following features:
+• Products are displayed on the front page, even if the user is not authenticated.
+• Users can create a new account or log in if they already have one.
+• Users can search for products using the search bar or browse products by category.
+• The front page displays only 8 products. To see previous products, you can click on "Previous" or "Next".
+• The users can see the details of a product by clicking on "Details".
+• Users can add products to their cart even if they are not authenticated.
+• The cart in the navbar displays the number of products in the cart.
+• The users can update the quantity of the products they want to buy, and the price is automatically updated as well.
+• Users can remove a product from the cart if they want to.
+• Users cannot checkout until they are authenticated.
+• All fields in the checkout form must be filled out. If a field is left null, an error message will be displayed.
+• If all fields in the checkout form are filled out and valid, users can pay using a bank card. An internet connection is required since we have implemented this method with Stripe, which is a suite of APIs powering online payment processing and commerce solutions for internet businesses of all sizes. You can use a card number 4242 4242 4242 4242 for testing.
+• After the user pays, the payment status will be returned as true.
+• After the user completes the checkout, the products will be cleared from the cart and the user will be returned to an empty cart.
+• In the vendor admin page, users can add new products to sell and see all the products they have added for sale.
+• Users can view their orders which contain all the products they have ordered.
+• Users can modify their products that they want to sell.
+• Only the superuser taoufik  password:1234 can access the admin page of django. Other users cannot access it.
+• The users can logout
